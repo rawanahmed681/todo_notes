@@ -1,0 +1,48 @@
+.text-main-color{
+    color: var(--text-main-color);
+}
+.bg-main-color{
+    background-color: var(--bg-main-color);
+}
+
+.text-secondary-color{
+    color: var(--text-secondary-color);
+}
+.bg-secondary-color{
+    background-color: var(--bg-secondary-color);
+}
+
+.text-third-color{
+    color: var(--text-third-color);
+}
+.bg-third-color{
+    background-color: var(--bg-third-color);
+}
+
+.text-4th-color{
+    color: var(--text-4th-color);
+}
+.bg-4th-color{
+    background-color: var(--bg-4th-color);
+}
+
+.text-5th-color{
+    color: var(--text-5th-color);
+}
+.bg-5th-color{
+    background-color: var(--bg-5th-color);
+}
+
+.text-white-color{
+    color: var(--text-white-color);
+}
+.bg-white-color{
+    background-color: var(--bg-white-color);
+}
+
+.text-dark-color{
+    color: var(--text-dark-color);
+}
+.bg-dark-color{
+    background-color: var(--bg-dark-color);
+}

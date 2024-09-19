@@ -1,0 +1,39 @@
+
+.grid-head {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+
+  /*======= head start===== */
+.container{
+    border: 1px solid var(--bg-button-color) !important;
+    margin: auto;
+}
+.button-add{
+    display: flex;
+    justify-content: end;
+    margin-left: 10px;
+    font-size: 50px;
+}
+.grid-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+/*======= head end ===== */
+
+/* ====== body start ====== */
+
+.grid-filter{
+    display: flex;
+    flex-direction: column;
+
+
+}
+.grid-note{
+    width: 100%;
+}
+
+
