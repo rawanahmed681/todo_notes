@@ -8,7 +8,7 @@
   /*======= head start===== */
 .container{
     border: 1px solid var(--bg-button-color) !important;
-    margin: auto;
+    margin: 20px;
 }
 .button-add{
     display: flex;
@@ -32,8 +32,40 @@
 
 
 }
+.check{
+    padding: 5px;
+}
+.check2{
+    margin: 10px;
+}
+.fa-circle{
+    margin-right: 7px;
+}
+.check button{
+    color: var(--text-dark-color) !important; 
+}
+ .button1:hover,
+.button1:focus{
+    background-color: var(--bg-secondary-color) !important;
+}
+.button2:hover,
+.button2:focus{
+    background-color: var(--bg-third-color) !important;
+}
+.button3:hover,
+.button3:focus{
+    background-color: var(--bg-4th-color) !important;
+}
+.button4:hover,
+.button4:focus{
+    background-color: var(--bg-5th-color) !important;
+}
+
 .grid-note{
     width: 100%;
 }
 
+.img img{
+    width: 20%;
+}
 
