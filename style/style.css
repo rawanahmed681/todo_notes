@@ -34,6 +34,11 @@
 /*======= head end ===== */
 
 /* ====== body start ====== */
+.grid-body{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
 
 .grid-filter{
     display: flex;
@@ -72,10 +77,30 @@
 
 .grid-note{
     width: 100%;
+    height: 50%;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+
 }
 
 .img img{
     width: 20%;
+}
+
+.note-content{
+    padding: 5px;
+    margin: 5px;
+}
+.note-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 5px 10px 5px;
+}
+.note-type{
+    display:flex;
+    justify-content: end;
 }
 
 /* ==== body end =========== */
@@ -88,17 +113,18 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 400px;
+    border-radius: 8px;
+    width: 40%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -111,25 +137,60 @@
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.add:hover {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
-.adding_closing{
+.add{
+    background-color: #69665c ;
+
+    border: 1px solid var(--bg-main-color) !important;
+    padding: .6rem 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 6rem;
+    color: var(--text-white-color) !important;
+    border-radius: var(--btn-border-radius);
+    font-size: 1rem;
+}
+.adding{
     display: flex;
     justify-content: space-between;
-    gap: 5px;
+}
+.input-text{
+    width: 100%;
+    padding: 7px 17px;
+    border: 2px solid #f4f3f3;
+    border-radius: 4px;
+    background-color: #f4f3f3;
+    color: #5e5e5e;
+    margin-bottom: 7px;
+}
+.input-desc{
+    width: 100%;
+    padding: 7px 17px;
+    border: 2px solid #f4f3f3;
+    border-radius: 4px;
+    background-color: #f4f3f3;
+    color: #5e5e5e;
+    margin-bottom: 7px;
+    resize: none;
+}
+.modal-flex{
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-filter{
     display: flex;
+    width: 50%;
 }
-.modal-filter .check{
+.modal-filter button{
     width: 100% !important;
-}
-.btn1{
-    width: 20% !important;
+    cursor: pointer;
 }
 
 /* ========= adding note modal end ========== */
