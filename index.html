@@ -22,7 +22,7 @@
                 <button>search</button>
             </div>
             <div class="button-add">
-                <button class="button-add" onclick="addNote()"><i class="fa-solid fa-plus"></i></button>
+                <button class="button-add" onclick="displayModal()"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
 
@@ -52,63 +52,60 @@
                 </div>
 
             </div>
-            <div class="grid-note bg-main-color">
-                
+            <div class="grid-note bg-main-color" id="notecontent">
+                <!-- <div class="note-content">
+                    <div class="note-head">
+                        <h1>the first task </h1>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum fugiat dignissimos provident aperiam laudantium nisi sequi error neque fuga totam.</p>
+                    <div class="note-type">
+                        <input type="checkbox" name="" id="done">
+                        <label for="done">Done</label>
+                    </div>
+                </div> -->
             </div>
             <div id="modal" class="modal">
                 <div class="modal-content">
-                    <div class="adding_closing">
-                        <button class="close">cancel</button>
-                        <span id="closeModal" class="close"><button class="btn-solid-main">add</button></span>
-                    </div>
                     
-                    <form id="noteForm">
-                        <table>
-                            <tr>
-                                <td><label for="title">Title</label></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" id="title" required placeholder="add a title..."></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="description">Description</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <textarea id="description" required placeholder="add a description..."></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="">Tags</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="modal-filter">
-                                        <div class="check btn1">
-                                            <button class="btn-outline-main button1"><i class="fa-solid fa-circle text-secondary-color"></i> work</button>
-                                        </div>
+                    
+                    <!-- <form id="noteForm" class="noteform"> -->
+                        <div class="modal-flex">
+                            <div class="adding">
                         
-                                        <div class="check">
-                                            <button class="btn-outline-main button2 btn1"><i class="fa-solid fa-circle text-third-color"></i> study</button>
-                                        </div>
+                                <td><button class="close" onclick="closeModal()">cancel</button></td>
+                                <td><button class="add adding" id="closeModal" onclick="addNote()">add</button></td>
+                            </div>
+                            <label for="title">Title</label>
+                            
+                            <input type="text" id="title" required placeholder="add a title..." class="input-text">
+                            
+                            <label for="description">Description</label>
+                            
+                            <textarea id="description" required placeholder="add a description..." class="input-desc" cols="20" rows="5"></textarea>
+                            
+                            <label for="">Tags</label>
+                            
+                            <div class="modal-filter">
+                                <div class="check btn1">
+                                    <button class="btn-outline-main button1"><i class="fa-solid fa-circle text-secondary-color"></i> work</button>
+                                </div>
+                
+                                <div class="check">
+                                    <button class="btn-outline-main button2 btn1"><i class="fa-solid fa-circle text-third-color"></i> study</button>
+                                </div>
+                
+                                <div class="check">
+                                    <button class="btn-outline-main button3 btn1"><i class="fa-solid fa-circle text-4th-color"></i> entertainment</button>
+                                </div>
+                
+                                <div class="check">
+                                    <button class="btn-outline-main button4 btn1"><i class="fa-solid fa-circle text-5th-color"></i> family</button>
+                                </div>
+                            </div>
+                        </div>
                         
-                                        <div class="check">
-                                            <button class="btn-outline-main button3 btn1"><i class="fa-solid fa-circle text-4th-color"></i> entertainment</button>
-                                        </div>
-                        
-                                        <div class="check">
-                                            <button class="btn-outline-main button4 btn1"><i class="fa-solid fa-circle text-5th-color"></i> family</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        
-                    </form>
+                    <!-- </form> -->
                 </div>
             </div>
 
