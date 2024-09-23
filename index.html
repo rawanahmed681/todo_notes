@@ -18,8 +18,9 @@
                 <h1>ToDo</h1>
             </div>
             <div class="grid-search">
-                <input type="search">
-                <button>search</button>
+                <input type="search" oninput="searchNote(this.value)" placeholder="search ">
+                
+                <!-- <button>search</button> -->
             </div>
             <div class="button-add">
                 <button class="button-add" onclick="displayModal()"><i class="fa-solid fa-plus"></i></button>
@@ -43,7 +44,7 @@
                 <div class="check">
                     <button class="btn-outline-main button4"><i class="fa-solid fa-circle text-5th-color"></i> family</button>
                 </div>
-                <div class="check check2">
+                <div class="check">
                     <input type="checkbox" name="doneTasks" id="doneTasks" value="hideDone">
                     <label for="doneTasks">Hide Done Tasks</label>
                 </div>
@@ -52,18 +53,8 @@
                 </div>
 
             </div>
-            <div class="grid-note bg-main-color" id="notecontent">
-                <!-- <div class="note-content">
-                    <div class="note-head">
-                        <h1>the first task </h1>
-                        <i class="fa-solid fa-ellipsis"></i>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum fugiat dignissimos provident aperiam laudantium nisi sequi error neque fuga totam.</p>
-                    <div class="note-type">
-                        <input type="checkbox" name="" id="done">
-                        <label for="done">Done</label>
-                    </div>
-                </div> -->
+            <div class="grid-note" id="notecontent">
+                
             </div>
             <div id="modal" class="modal">
                 <div class="modal-content">
@@ -74,7 +65,8 @@
                             <div class="adding">
                         
                                 <td><button class="close" onclick="closeModal()">cancel</button></td>
-                                <td><button class="add adding" id="closeModal" onclick="addNote()">add</button></td>
+                                <td><button class="add" id="addBtn" onclick="addNote()">add</button></td>
+                                <td><button class="edit" id="editBtn" onclick="getEditBtn()">Edit</button></td>
                             </div>
                             <label for="title">Title</label>
                             
@@ -85,22 +77,22 @@
                             <textarea id="description" required placeholder="add a description..." class="input-desc" cols="20" rows="5"></textarea>
                             
                             <label for="">Tags</label>
-                            
+
                             <div class="modal-filter">
                                 <div class="check btn1">
-                                    <button class="btn-outline-main button1"><i class="fa-solid fa-circle text-secondary-color"></i> work</button>
+                                    <button class="btn-outline-main button1 btn1" value="work"><i class="fa-solid fa-circle text-secondary-color"></i> work</button>
                                 </div>
                 
                                 <div class="check">
-                                    <button class="btn-outline-main button2 btn1"><i class="fa-solid fa-circle text-third-color"></i> study</button>
+                                    <button class="btn-outline-main button2 btn1" value="study"><i class="fa-solid fa-circle text-third-color"></i> study</button>
                                 </div>
                 
                                 <div class="check">
-                                    <button class="btn-outline-main button3 btn1"><i class="fa-solid fa-circle text-4th-color"></i> entertainment</button>
+                                    <button class="btn-outline-main button3 btn1" value="entertainment"><i class="fa-solid fa-circle text-4th-color"></i> entertainment</button>
                                 </div>
                 
                                 <div class="check">
-                                    <button class="btn-outline-main button4 btn1"><i class="fa-solid fa-circle text-5th-color"></i> family</button>
+                                    <button class="btn-outline-main button4 btn1" value="family"><i class="fa-solid fa-circle text-5th-color"></i> family</button>
                                 </div>
                             </div>
                         </div>
