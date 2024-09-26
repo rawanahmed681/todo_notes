@@ -1,8 +1,8 @@
 var titleInput= document.getElementById('title');
 var descInput= document.getElementById('description');
 var buttons = document.querySelectorAll('.btn1');
-var doneNote = document.getElementById('doneNot');
-
+var doneNote = document.querySelectorAll('.done-check');
+var validatError = document.getElementById('errorAlert');
 var addBtn = document.getElementById('addBtn');
 var editBtn = document.getElementById('editBtn');
 
@@ -28,28 +28,30 @@ window.onclick = function(event) {
 function closeModal(){
     modal.style.display = "none";
 }
-function doneCheck(){
-    if(doneNote.checked=="done"){
-        titleInput.value.classList.add("doneNotes");
-     }
-}
 
 function addNote(){
-    var note = {
-        title: titleInput.value,
-        description: descInput.value
-    }
 
-    notesContainer.push(note);
+    // validatError.style.display= "none";
+
+        var selectedTags = buttonValues; 
+    
+        var note = {
+            title: titleInput.value,
+            description: descInput.value,
+            tags: selectedTags
+        }
+        notesContainer.push(note);
     localStorage.setItem("notes",JSON.stringify(notesContainer));
     // console.log(note.title)
     displayNote(notesContainer);
-    
-    
+
     closeModal(); 
     console.log(notesContainer)
 
     clearInput()
+    buttonValues = [];
+  
+
     
 }
 function clearInput(){
@@ -57,38 +59,88 @@ function clearInput(){
     descInput.value = '';
 }
 
-buttons.forEach(button =>{
-    button.onclick = function(event){
-        const buttonValue = event.target.value;
-    }
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Make sure the elements are found
+//     if (doneNote && notesContainer) {
+//         function doneCheck() {
+//             if (doneNote.checked) { // If checkbox is checked
+//                 notesContainer.title.classList.add("done-Notes"); // Add the class
+//             } else {
+//                 notesContainer.title.classList.remove("done-Notes"); // Remove the class if unchecked
+//             }
+//         }
+
+//         // Add event listener to the checkbox to trigger the function when the checkbox state changes
+//         doneNote.addEventListener('change', doneCheck);
+//     } else {
+//         console.error('Elements not found');
+//     }
+// });
+
+function doneCheck(index) {
+
+                if (doneNote.checked ==true) { // If checkbox is checked
+                    notesContainer[index].title.classList.add("done-Notes"); // Add the class
+                    console.log(index);
+                }
+
+                //  else {
+                //     notesContainer[index].title.classList.remove("done-Notes"); // Remove the class if unchecked
+                // }
+            }
+
+var buttonValues = []; 
+
+buttons.forEach(button => {
+    button.onclick = function(event) {
+        const value = event.target.value;
+console.log("buttonValues",value)
+        if (buttonValues.includes(value)) {
+            buttonValues = buttonValues.filter(v => v !== value); // Remove if already selected
+        } else {
+            buttonValues.push(value); 
+        }
+
+        console.log(buttonValues);
+    };
 });
 function displayNote(arr){
     var allNotes=``;
     for( var i=0; i<arr.length;i++){
+        let tags = arr[i].tags ? arr[i].tags : []; 
         allNotes +=`
-                <div class="noteContent">
+                <div class="note-Content">
                     <div class="note-head">
                         <h1 class="noteTitle">${
                             arr[i].title
                         }</h1>
                         
+                        
                         <div class="dropdown">
-                       <button class="dropbtn"><i class="fa-solid fa-ellipsis">
-                        </i></button>
+                       <button class="dropbtn"><span>...</span>
+                        </button>
                          <div class="dropdown-content">
-                              <a href="#" onclick="setEditBtn(${i})">edit</a>
-                              <button onclick="deleteNote(${i})">delete</button>
+                              <a href="#" onclick="setEditBtn(${i})">Edit</a>
+                              <button onclick="deleteNote(${i})">Delete</button>
                              </div>
                         </div>
                         
                     </div>
+                    <div class="note-paragraph">
                     <p>${arr[i].description}</p>
+                    </div>
+                    
 
                     <div class="filter-input">
-                    </div>
+                    
+                    
+                     <div class="note-tag">
+                    ${arr[i].tags}
+                     </div>
                     <div class="note-type">
-                        <input type="checkbox" name="" id="doneNot" value="done" onclick="doneCheck()">
+                        <input type="checkbox" name="done" class="done-check" value="done" onclick="doneCheck(${i})">
                         <label for="done" >Done</label>
+                    </div>
                     </div>
                 </div>
             
@@ -137,6 +189,23 @@ function searchNote(word){
     displayNote(matchedNotes);
 }
 
+function filterNotesType(value){
+    var filteredNotes = [];
+    
+    for(var i=0; i<notesContainer.length ;i++){
+    
+
+        if(notesContainer[i].tags.includes(value)){
+        
+
+            filteredNotes.push(notesContainer[i])
+            // filteredNotes=[];
+            // displayNote(filteredNotes);
+    }
+    console.log(i);
+    displayNote(filteredNotes);
+}}
+
 var currentEditIndex = null;
 
 function setEditBtn(index){
@@ -153,8 +222,11 @@ function setEditBtn(index){
 function getEditBtn(){
 
     if(currentEditIndex!= null){
+        var selectedTags = buttonValues;
+
         notesContainer[currentEditIndex].title = titleInput.value;
         notesContainer[currentEditIndex].description = descInput.value;
+        notesContainer[currentEditIndex].tags = selectedTags;
 
         localStorage.setItem("notes",JSON.stringify(notesContainer));
 
@@ -166,6 +238,8 @@ function getEditBtn(){
         clearInput()
 
         closeModal(); 
+
+        buttonValues = [];
 
         currentEditIndex = null;
     }
