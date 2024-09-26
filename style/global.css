@@ -1,16 +1,22 @@
+@import url(colores.css);
+@import url(variables.css);
+@import url(style.css);
+@import url(media.css);
 
 *{
+    
+    box-sizing: border-box;
+    
+}
+body{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.btn-solid-main,
-    .btn-solid-main:hover,
     .btn-outline-main:hover,
-    .btn-solid-main:focus,
-    .btn-outline-main:focus,
-    .btn-solid-main:active{
+    .btn-outline-main:focus{
     
     background-color: var(--bg-main-color) ;
 
@@ -42,18 +48,4 @@
     font-size: 1rem;
 
 }
-/* .btn-outline-main:hover{
-    background-color: transparent !important;
-    border: 1px solid var(--bg-main-color) !important;
-    padding: .6rem 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 6rem;
-    color: var(--text-main-color) !important;
-    border-radius: var(--btn-border-radius);
-    font-size: 1rem;
-} */
-
-/* ============ login ================= */
 

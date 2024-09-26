@@ -1,47 +1,56 @@
 
-.grid-head {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
-  }
+
 
   /*======= head start===== */
-.container{
-    /* border: 1px solid var(--bg-button-color) !important; */
-    margin: 20px;
+.flex-head {
+    display: flex;
+    padding: 10px;
+    /* width:100%; */
 }
-.grid-logo{
+.head{
+   
+    margin-top: 20px;
+    width:100%;
+}
+.head-logo{
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-left: 15px;
+    width: 20%;
+    margin-left: 30px;
     
 }
 .button-add{
     display: flex;
     justify-content: center;
     margin-left: 10px;
+    font-weight: 200;
     font-size: 40px;
     background-color: var(--bg-white-color) !important;
     border: none;
     cursor: pointer;
+    width: 20%;
 }
-.grid-search{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 3px;
+.search-w{
+    width:50%;
+    margin-left: 30px;
 }
-svg{
-    width: 5%;
+.head-search{
+    width: 60%;
+    height: 40px;
+    border-radius: 15px;
+    padding-left: 10px;
+    border: 1px solid rgba(120, 119, 119, 0.822);
 }
 /*======= head end ===== */
 
 /* ====== body start ====== */
+.main{
+    margin-top: 20px;
+}
 .grid-body{
 
-    /* display: grid;
-    grid-template-columns: auto auto auto; */
+   
     display: flex;
     padding: 10px;
 }
@@ -55,11 +64,21 @@ svg{
 .check{
     padding: 5px;
     margin: 10px;
+    display: flex;
+}
+.filter-circle{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+
 }
 
-.fa-circle{
-    margin-right: 7px;
+.margin-checkbox{
+
+    margin-left: 30px;
 }
+
 .check button{
     color: var(--text-dark-color) !important; 
 }
@@ -91,12 +110,13 @@ svg{
 
 .img img{
     width: 40%;
+    margin-left: 20px;
 }
 .dropbtn{
     background-color: transparent;
     color: #69665c ;
     padding: 16px;
-    font-size: 16px;
+    font-size: 25px;
     border: none;
   }
   
@@ -141,10 +161,13 @@ svg{
   
   .dropdown:hover .dropdown-content {display: block;}
   
-.noteContent{
+.note-Content{
+
     width: 45%;
     padding: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 11px;
     background-color: var(--bg-main-color) !important;
 }
 .note-head{
@@ -153,9 +176,38 @@ svg{
     align-items: center;
     margin: 5px 5px 10px 5px;
 }
+.note-paragraph{
+    padding: 10px;
+}
 .note-type{
     display:flex;
     justify-content: end;
+}
+.filter-input{
+    margin-top: 5px;
+    display:flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 10px;
+}
+.selected {
+    background-color: #d3d3d3;
+    border: 2px solid #333;
+}
+/* .note-tag{
+    display:flex;
+    justify-content: start;
+    align-items: end;
+} */
+
+.note-tag{
+
+    display: inline-block;
+    background-color: #f0f0f0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 /* ==== body end =========== */
@@ -189,6 +241,7 @@ svg{
     font-weight: bold;
     background-color: #fefefe;
     border: none;
+    margin-bottom: 10px;
 }
 
 .close:hover,
@@ -228,7 +281,7 @@ svg{
     border-radius: var(--btn-border-radius);
     font-size: 1rem;
 }
-.adding{
+.form-actions{
     display: flex;
     justify-content: space-between;
 }
@@ -239,7 +292,8 @@ svg{
     border-radius: 4px;
     background-color: #f4f3f3;
     color: #5e5e5e;
-    margin-bottom: 7px;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }
 .input-desc{
     width: 100%;
@@ -249,6 +303,7 @@ svg{
     background-color: #f4f3f3;
     color: #5e5e5e;
     margin-bottom: 7px;
+    margin-top: 10px;
     resize: none;
 }
 .modal-flex{
@@ -266,9 +321,15 @@ svg{
     cursor: pointer;
 }
 
+.error-alert{
+    display: none;
+    width: 10px;
+    border: 1px solid red;
+}
+
 /* ========= adding note modal end ========== */
 
-.doneNotes{
-    text-decoration-line: line-through;
+.done-Notes{
+    text-decoration-line:line-through;
     color: gray;
 }
