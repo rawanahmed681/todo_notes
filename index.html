@@ -4,47 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style/variables.css">
-    <link rel="stylesheet" href="style/colores.css">
     <link rel="stylesheet" href="style/global.css">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/media.css">
-    <link rel="stylesheet" href="css/all.min.css">
 </head>
 <body>
-    <section class="container">
-        <div class="grid-head">
-            <div class="grid-logo">
+    <header class="head">
+        <div class="flex-head">
+            <div class="head-logo">
                 <h1>ToDo</h1>
             </div>
-            <div class="grid-search">
-                <input type="search" oninput="searchNote(this.value)" placeholder="search ">
+            <div class="search-w">
+                <input type="search" oninput="searchNote(this.value)" placeholder="search " class="head-search">
                 
-                <!-- <button>search</button> -->
             </div>
             <div class="button-add">
-                <button class="button-add" onclick="displayModal()"><i class="fa-solid fa-plus"></i></button>
+                <button class="button-add" onclick="displayModal()">+</button>
             </div>
         </div>
+
+    </header>
+    <main class="main">
 
         <div class="grid-body">
             <div class="grid-filter">
                 <div class="check">
-                    <button class="btn-outline-main button1"><i class="fa-solid fa-circle text-secondary-color"></i> work</button>
+                    <button class="btn-outline-main button1" value="work" onclick="filterNotesType(this.value)"><div class="filter-circle bg-secondary-color"></div> Work</button>
                 </div>
 
                 <div class="check">
-                    <button class="btn-outline-main button2"><i class="fa-solid fa-circle text-third-color"></i> study</button>
+                    <button class="btn-outline-main button2" value="study" onclick="filterNotesType(this.value)"><div class="filter-circle bg-third-color"></div> Study</button>
                 </div>
 
                 <div class="check">
-                    <button class="btn-outline-main button3"><i class="fa-solid fa-circle text-4th-color"></i> entertainment</button>
+                    <button class="btn-outline-main button3" value="entertainment" onclick="filterNotesType(this.value)"><div class="filter-circle bg-4th-color"></div> Entertainment</button>
                 </div>
 
                 <div class="check">
-                    <button class="btn-outline-main button4"><i class="fa-solid fa-circle text-5th-color"></i> family</button>
+                    <button class="btn-outline-main button4" value="family" onclick="filterNotesType(this.value)"><div class="filter-circle bg-5th-color"></div> Family</button>
                 </div>
-                <div class="check">
+                <div class="check margin-checkbox">
                     <input type="checkbox" name="doneTasks" id="doneTasks" value="hideDone">
                     <label for="doneTasks">Hide Done Tasks</label>
                 </div>
@@ -62,37 +59,47 @@
                     
                     <!-- <form id="noteForm" class="noteform"> -->
                         <div class="modal-flex">
-                            <div class="adding">
-                        
-                                <td><button class="close" onclick="closeModal()">cancel</button></td>
-                                <td><button class="add" id="addBtn" onclick="addNote()">add</button></td>
-                                <td><button class="edit" id="editBtn" onclick="getEditBtn()">Edit</button></td>
+                            <div class="form-actions">
+
+                                <button class="close" onclick="closeModal()">cancel</button>
+                                <button class="add" id="addBtn" onclick="addNote()">add</button>
+                                <button class="edit" id="editBtn" onclick="getEditBtn()">Edit</button>
                             </div>
-                            <label for="title">Title</label>
+                            <div class="form-title">
+                                <label for="title">Title</label>
                             
                             <input type="text" id="title" required placeholder="add a title..." class="input-text">
+                            </div>
                             
-                            <label for="description">Description</label>
+                            <div class="form-description">
+                                <label for="description">Description</label>
                             
                             <textarea id="description" required placeholder="add a description..." class="input-desc" cols="20" rows="5"></textarea>
+                            </div>
+
+                            <div class="error-alert" id="errorAlert">
+                                you should enter the two inputs
+                            </div>
                             
-                            <label for="">Tags</label>
+                            <div class="tag-label">
+                                <label for="">Tags</label>
+                            </div>
 
                             <div class="modal-filter">
-                                <div class="check btn1">
-                                    <button class="btn-outline-main button1 btn1" value="work"><i class="fa-solid fa-circle text-secondary-color"></i> work</button>
+                                <div class="check">
+                                    <button class="btn-outline-main button1 btn1" value="work" ><div class="filter-circle bg-secondary-color"></div> Work</button>
+                                </div>
+
+                                <div class="check">
+                                    <button class="btn-outline-main button2 btn1" value="study"><div class="filter-circle bg-third-color"></div> Study</button>
                                 </div>
                 
                                 <div class="check">
-                                    <button class="btn-outline-main button2 btn1" value="study"><i class="fa-solid fa-circle text-third-color"></i> study</button>
+                                    <button class="btn-outline-main button3 btn1" value="entertainment" ><div class="filter-circle bg-4th-color"></div> Entertainment</button>
                                 </div>
-                
+            
                                 <div class="check">
-                                    <button class="btn-outline-main button3 btn1" value="entertainment"><i class="fa-solid fa-circle text-4th-color"></i> entertainment</button>
-                                </div>
-                
-                                <div class="check">
-                                    <button class="btn-outline-main button4 btn1" value="family"><i class="fa-solid fa-circle text-5th-color"></i> family</button>
+                                    <button class="btn-outline-main button4 btn1" value="family"><div class="filter-circle bg-5th-color"></div> Family</button>
                                 </div>
                             </div>
                         </div>
@@ -102,9 +109,10 @@
             </div>
 
         </div>
-    </section>
+    </main>
 
 
     <script src="script.js"></script>
 </body>
 </html>
+
